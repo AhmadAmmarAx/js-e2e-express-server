@@ -26,7 +26,6 @@ steps:
 - checkout: Exam_Tool_Client
 - script: npm install
   displayName: 'Install Dependencies'
-  workingDirectory: EFTA_Exam\EFTA_Exam
 
 - script: npm run build
   displayName: 'Build Electron App'
