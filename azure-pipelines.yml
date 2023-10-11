@@ -30,9 +30,11 @@ steps:
 
 - script: npm run build
   displayName: 'Build Electron App'
+  workingDirectory: EFTA_Exam
   
 - script: npm run package
   displayName: 'Package Electron App'
+  workingDirectory: EFTA_Exam
 
 - task: PublishBuildArtifacts@1
   inputs:
