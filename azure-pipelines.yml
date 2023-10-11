@@ -9,6 +9,13 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+resources:
+  repositories:
+  - repository: MyOtherAzureRepo
+    type: git
+    name: ProjectName/RepositoryName
+
+
 steps:
 - task: NodeTool@0
   inputs:
