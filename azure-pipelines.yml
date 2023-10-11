@@ -4,7 +4,9 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
 trigger:
-- master
+  branches:
+    include:
+    - master
 
 pool:
   vmImage: ubuntu-latest
@@ -22,10 +24,18 @@ steps:
     versionSpec: '16.x'
   displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+- checkout: self
+- script: npm ci
+  displayName: 'Install Dependencies'
 
+- script: npm run build
+  displayName: 'Build Electron App'
+  
 - script: npm run package
   displayName: 'Package Electron App'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathtoPublish: 'dist'  # Assuming your Electron Builder outputs to a 'dist' directory
+    artifactName: 'electron-app'
+    publishLocation: 'Container'
