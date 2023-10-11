@@ -3,6 +3,12 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 
+resources:
+  repositories:
+  - repository: Exam_Tool_Client
+    type: git
+    name: EFTA_Solutions/Exam_Tool_Client
+
 trigger:
   branches:
     include:
@@ -10,13 +16,6 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-
-resources:
-  repositories:
-  - repository: Exam_Tool_Client
-    type: git
-    name: EFTA_Solutions/Exam_Tool_Client
-
 
 steps:
 - task: NodeTool@0
