@@ -24,7 +24,7 @@ steps:
   displayName: 'Install Node.js'
 
 - checkout: Exam_Tool_Client
-- script: npm ci
+- script: npm install
   displayName: 'Install Dependencies'
   workingDirectory: EFTA_Exam\EFTA_Exam
 
