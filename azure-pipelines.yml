@@ -11,9 +11,9 @@ pool:
 
 resources:
   repositories:
-  - repository: MyOtherAzureRepo
+  - repository: Exam_Tool_Client
     type: git
-    name: ProjectName/RepositoryName
+    name: EFTA_Solutions/Exam_Tool_Client
 
 
 steps:
