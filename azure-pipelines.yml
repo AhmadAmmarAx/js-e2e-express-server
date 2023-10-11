@@ -27,5 +27,5 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- script: npm run package:test
+- script: npm run package
   displayName: 'Package Electron App'
