@@ -23,7 +23,7 @@ steps:
     versionSpec: '16.x'
   displayName: 'Install Node.js'
 
-- checkout: self
+- checkout: Exam_Tool_Client
 - script: npm ci
   displayName: 'Install Dependencies'
   workingDirectory: EFTA_Exam\EFTA_Exam
