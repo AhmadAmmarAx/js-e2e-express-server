@@ -36,8 +36,14 @@ steps:
   displayName: 'Package Electron App'
   workingDirectory: EFTA_Exam
 
+# Copy the release artifacts to the staging directory
+- script: cp -r EFTA_Exam/release $(Build.ArtifactStagingDirectory)
+  displayName: 'Copy release artifacts to staging directory'
+
+# Publish the release artifacts from the staging directory
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: $(Build.ArtifactStagingDirectory)  # Assuming your Electron Builder outputs to a 'dist' directory
-    artifactName: 'electron-app'
+    pathtoPublish: $(Build.ArtifactStagingDirectory) 
+    artifactName: 'electron-app-release'
     publishLocation: 'Container'
+
