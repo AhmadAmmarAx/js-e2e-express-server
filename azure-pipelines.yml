@@ -36,19 +36,19 @@ steps:
   displayName: 'Package Electron App'
   workingDirectory: EFTA_Exam
 
-# Create a new directory and copy the artifacts into it
-- script: mkdir -p $(Build.ArtifactStagingDirectory)
-  displayName: 'Create Artifact Folder'
-  
-
-# Copy the release artifacts to the staging directory
-- script: cp -r EFTA_Exam/release/buildTesting $(Build.ArtifactStagingDirectory)
-  displayName: 'Copy release artifacts to staging directory'
-
-# Publish the release artifacts from the staging directory
-- task: PublishBuildArtifacts@1
+- task: CopyFiles@2
   inputs:
-    pathtoPublish: 'EFTA_Exam/release/buildTesting' 
-    artifactName: 'electron-app-release'
-    publishLocation: 'Container'
+    sourceFolder: '$(Build.SourcesDirectory)'
+    contents: |
+       src/*
+       public/*
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'Copy project files'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    artifactName: e2e-server
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    publishLocation: 'pipeline'
+  displayName: 'Publish npm artifact'
 
