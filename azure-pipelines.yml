@@ -44,6 +44,6 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: $(Build.ArtifactStagingDirectory) 
-    artifactName: 'electron-app-release'
+    artifactName: 'build/electron-app-release'
     publishLocation: 'Container'
 
