@@ -34,11 +34,11 @@ steps:
   
 - script: npm run package:test
   displayName: 'Package Electron App'
-  workingDirectory: '$(Build.SourcesDirectory)'
+  workingDirectory: ُEFTA_EXAM
 
 - task: CopyFiles@2
   inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
+    sourceFolder: 'ُEFTA_EXAM/release'
     contents: |
        src/*
        public/*
