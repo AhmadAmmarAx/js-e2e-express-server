@@ -48,7 +48,7 @@ steps:
 # Publish the release artifacts from the staging directory
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: $(Build.ArtifactStagingDirectory) 
+    pathtoPublish: $(Build.ArtifactStagingDirectory)/YourFolder
     artifactName: 'electron-app-release'
     publishLocation: 'Container'
 
