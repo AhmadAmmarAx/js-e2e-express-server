@@ -48,7 +48,7 @@ steps:
 - task: PublishPipelineArtifact@1
   inputs:
     artifactName: e2e-server
-    targetPath: '$(Build.ArtifactStagingDirectory)'
+    targetPath: 'EFTA_Exam/release/buildTesting' 
     publishLocation: 'pipeline'
   displayName: 'Publish npm artifact'
 
