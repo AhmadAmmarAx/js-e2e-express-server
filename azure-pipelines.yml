@@ -36,6 +36,11 @@ steps:
   displayName: 'Package Electron App'
   workingDirectory: EFTA_Exam
 
+# Create a new directory and copy the artifacts into it
+- script: mkdir -p $(Build.ArtifactStagingDirectory)/YourFolder
+  displayName: 'Create Artifact Folder'
+  
+
 # Copy the release artifacts to the staging directory
 - script: cp -r EFTA_Exam/release $(Build.ArtifactStagingDirectory)
   displayName: 'Copy release artifacts to staging directory'
@@ -44,6 +49,6 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: $(Build.ArtifactStagingDirectory) 
-    artifactName: 'build/electron-app-release'
+    artifactName: 'electron-app-release'
     publishLocation: 'Container'
 
