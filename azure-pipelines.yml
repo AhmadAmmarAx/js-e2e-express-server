@@ -37,18 +37,18 @@ steps:
   workingDirectory: EFTA_Exam
 
 # Create a new directory and copy the artifacts into it
-- script: mkdir -p $(Build.ArtifactStagingDirectory)/EFTA_Exam
+- script: mkdir -p $(Build.ArtifactStagingDirectory)
   displayName: 'Create Artifact Folder'
   
 
 # Copy the release artifacts to the staging directory
-- script: cp -r EFTA_Exam/release $(Build.ArtifactStagingDirectory)/EFTA_Exam
+- script: cp -r EFTA_Exam/release $(Build.ArtifactStagingDirectory)
   displayName: 'Copy release artifacts to staging directory'
 
 # Publish the release artifacts from the staging directory
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: 'EFTA_Exam' 
+    pathtoPublish: 'EFTA_Exam/release' 
     artifactName: 'electron-app-release'
     publishLocation: 'Container'
 
