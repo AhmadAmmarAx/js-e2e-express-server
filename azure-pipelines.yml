@@ -32,7 +32,7 @@ steps:
   displayName: 'Build Electron App'
   workingDirectory: EFTA_Exam
   
-- script: npm run package
+- script: npm run package:test
   displayName: 'Package Electron App'
   workingDirectory: EFTA_Exam
 
