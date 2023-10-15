@@ -26,29 +26,20 @@ steps:
 - checkout: Exam_Tool_Client
 - script: npm install
   displayName: 'Install Dependencies'
-  workingDirectory: EFTA_Exam
+  workingDirectory: $(Build.SourcesDirectory)
+
 
 - script: npm run build
   displayName: 'Build Electron App'
-  workingDirectory: EFTA_Exam
+  workingDirectory: $(Build.SourcesDirectory)
+
   
 - script: npm run package:test
   displayName: 'Package Electron App'
-  workingDirectory: EFTA_Exam
+  workingDirectory: $(Build.SourcesDirectory)
 
-- task: CopyFiles@2
+- task: PublishBuildArtifacts@1
   inputs:
-    sourceFolder: 'EFTA_Exam/release'
-    contents: |
-       src/*
-       public/*
-    targetFolder: '$(Build.ArtifactStagingDirectory)'
-  displayName: 'Copy project files'
-
-- task: PublishPipelineArtifact@1
-  inputs:
-    artifactName: e2e-server
-    targetPath: 'EFTA_Exam/release/buildTesting' 
-    publishLocation: 'pipeline'
-  displayName: 'Publish npm artifact'
-
+    pathtoPublish: '$(Build.SourcesDirectory)/release/buildTesting'  # Update this to your build output path
+    artifactName: 'WindowsElectronApp'
+    publishLocation: 'Container'
