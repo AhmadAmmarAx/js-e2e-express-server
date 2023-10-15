@@ -40,6 +40,6 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: 'EFTA_Exam/release/buildTesting'  # Update this to your build output path
+    pathtoPublish: 'EFTA_Exam/release/build'  # Update this to your build output path
     artifactName: 'WindowsElectronApp'
     publishLocation: 'Container'
