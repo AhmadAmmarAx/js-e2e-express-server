@@ -26,20 +26,20 @@ steps:
 - checkout: Exam_Tool_Client
 - script: npm install
   displayName: 'Install Dependencies'
-  workingDirectory: $(Build.SourcesDirectory)
+  workingDirectory: EFTA_Exam
 
 
 - script: npm run build
   displayName: 'Build Electron App'
-  workingDirectory: $(Build.SourcesDirectory)
+  workingDirectory: EFTA_Exam
 
   
 - script: npm run package:test
   displayName: 'Package Electron App'
-  workingDirectory: $(Build.SourcesDirectory)
+  workingDirectory: EFTA_Exam
 
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(Build.SourcesDirectory)/release/buildTesting'  # Update this to your build output path
+    pathtoPublish: 'EFTA_Exam/release/buildTesting'  # Update this to your build output path
     artifactName: 'WindowsElectronApp'
     publishLocation: 'Container'
