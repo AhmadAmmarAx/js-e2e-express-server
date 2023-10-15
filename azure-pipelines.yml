@@ -34,7 +34,7 @@ steps:
   
 - script: npm run package:test
   displayName: 'Package Electron App'
-  workingDirectory: ُEFTA_EXAM
+  workingDirectory: EFTA_Exam
 
 - task: CopyFiles@2
   inputs:
